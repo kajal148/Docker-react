@@ -7,3 +7,12 @@ before_install:
 
 script:
   - docker run -e CI=true kajal/docker-react npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-west-2" #region
+  app: "docker-react" #name of the app
+  env: "Docker-env" #name of the env name
+  bucket_name: 
+  on: 
+    branch: master #production github branch
